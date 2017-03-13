@@ -1,5 +1,5 @@
-# Class pulp::differentlocation
-class pulp::differentlocation {
+# Class pulp_cgk::differentlocation
+class pulp_cgk::differentlocation {
   file { '/data/mongodb':
     ensure => directory,
     owner  => 'mongodb',

@@ -134,22 +134,22 @@ class pulp (
   #validate_re($package_version, ['^installed$', '^latest$', '^2\.'])
   #validate_re($mail_enabled, [ '^true$', '^false$' ])
 
-  #anchor{ 'pulp::begin': }
-  #anchor{ 'pulp::end': }
+  #anchor{ 'pulp_cgk::begin': }
+  #anchor{ 'pulp_cgk::end': }
 
 
   if $pulp_version == '1' {
-    include pulp::package
-    include pulp::config
-    include pulp::service
+    include pulp_cgk::package
+    include pulp_cgk::config
+    include pulp_cgk::service
   }
   if $pulp_version == '2' {
-    class { 'pulp::repo':
+    class { 'pulp_cgk::repo':
       repo_enabled => $repo_enabled,
-      #require      => Anchor['pulp::end']
+      #require      => Anchor['pulp_cgk::end']
     }
     if $pulp_server == true {
-      class { 'pulp::server':
+      class { 'pulp_cgk::server':
         mail_enabled      => $mail_enabled,
         mail_host         => $mail_host,
         mail_from         => $mail_from,
@@ -161,24 +161,24 @@ class pulp (
         migrate_attempts  => $migrate_attempts,
         migrate_wait_secs => $migrate_wait_secs,
         package_version   => $package_version,
-        require           => Class['pulp::repo'],
+        require           => Class['pulp_cgk::repo'],
         }
 
     }
     if $pulp_client == true {
-      class { 'pulp::client':
+      class { 'pulp_cgk::client':
         pulp_server_host => $pulp_server_host,
         pulp_server_port => $pulp_server_port,
         package_version  => $package_version,
-        require          => Class['pulp::repo']
+        require          => Class['pulp_cgk::repo']
       }
     }
     if $pulp_admin == true {
-      class { 'pulp::admin':
+      class { 'pulp_cgk::admin':
         pulp_server_host => $pulp_server_host,
         pulp_server_port => $pulp_server_port,
         package_version  => $package_version,
-        require          => Class['pulp::repo']
+        require          => Class['pulp_cgk::repo']
       }
     }
   }

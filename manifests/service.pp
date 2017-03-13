@@ -1,5 +1,5 @@
-# = Class: pulp::service
-class pulp::service {
+# = Class: pulp_cgk::service
+class pulp_cgk::service {
 
   service {
     # When you run into AutoReconnect: could not find master/primary

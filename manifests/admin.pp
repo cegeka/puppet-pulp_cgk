@@ -1,5 +1,5 @@
-# class pulp::admin
-class pulp::admin (
+# class pulp_cgk::admin
+class pulp_cgk::admin (
 $pulp_server_host = $fqdn,
 $pulp_server_port = '443',
 $package_version   = 'installed'

@@ -89,7 +89,7 @@ class Repository
 
 end
 
-Puppet::Type.type(:pulp).provide(:repository) do
+Puppet::Type.type(:pulp_cgk).provide(:repository) do
 
   def exists?
     res = getrepo(resource[:repoid])

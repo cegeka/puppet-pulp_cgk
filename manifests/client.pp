@@ -1,5 +1,5 @@
-# Class pulp::client
-class pulp::client (
+# Class pulp_cgk::client
+class pulp_cgk::client (
   $pulp_server_host = undef,
   $pulp_server_port = '443',
   $package_version   = 'installed'

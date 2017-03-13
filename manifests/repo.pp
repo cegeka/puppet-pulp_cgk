@@ -1,6 +1,6 @@
-# Class pulp::repo
+# Class pulp_cgk::repo
 #
-class pulp::repo (
+class pulp_cgk::repo (
   $repo_enabled = true
 ){
   if $repo_enabled == true {

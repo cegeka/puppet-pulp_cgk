@@ -1,4 +1,4 @@
-# = Class: pulp::server
+# = Class: pulp_cgk::server
 #
 # == This module manages pulp server
 #
@@ -49,7 +49,7 @@
 #
 # == Todo
 #
-class pulp::server (
+class pulp_cgk::server (
   $mail_enabled      = false,
   $mail_host         = 'localhost.localdomain',
   $mail_host_port    = '25',
@@ -69,7 +69,7 @@ class pulp::server (
   package { $packagelist:
     ensure => $package_version,
   }
-  include pulp::differentlocation
+  include pulp_cgk::differentlocation
     file { '/etc/pulp/server.conf':
       owner   => 'root',
       group   => 'root',
@@ -83,7 +83,7 @@ class pulp::server (
     service { 'mongod':
       ensure  => 'running',
       enable  => $enabled,
-      require => Class['pulp::differentlocation'],
+      require => Class['pulp_cgk::differentlocation'],
     }
     service { 'qpidd':
       ensure => 'running',

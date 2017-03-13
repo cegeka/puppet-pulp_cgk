@@ -1,5 +1,5 @@
-# = Class: pulp::config
-class pulp::config {
+# = Class: pulp_cgk::config
+class pulp_cgk::config {
 
   # Set correct hostname
   file { '/etc/pulp/admin/admin.conf':

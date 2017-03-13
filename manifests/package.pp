@@ -1,5 +1,5 @@
-# = Class: pulp::package
-class pulp::package {
+# = Class: pulp_cgk::package
+class pulp_cgk::package {
   package {
     'pulp':
       ensure => 'present';

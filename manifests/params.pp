@@ -1,2 +1,2 @@
-# Class pulp::params
-class pulp::params{}
+# Class pulp_cgk::params
+class pulp_cgk::params{}

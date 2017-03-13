@@ -1,5 +1,5 @@
 require 'facter'
-Puppet::Type.newtype(:pulp) do
+Puppet::Type.newtype(:pulp_cgk) do
   @doc = "Interface to manage pulp from within puppet"
 #  feature :createable, "The provider can create a repository",
 #    :methods => [:create]
@@ -55,7 +55,7 @@ Puppet::Type.newtype(:pulp) do
     desc "hostname of the pulp-server"
     defaultto Facter.value('fqdn')
   end
-  
+
   newparam(:removeorphans) do
     desc "removes all orphan packages"
     newvalues(:true, :false)
